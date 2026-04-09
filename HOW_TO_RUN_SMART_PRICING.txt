@@ -1,0 +1,30 @@
+Smart Pricing — Lodging demo (from Jira Stories for Smart Pricing)
+
+WHAT YOU GET
+- backend/          FastAPI: pricing engine + APIs (GET /api/pricing/{id}, POST /api/simulation/run, admin kill switch)
+- frontend/         React (Vite) web UI: Host controls, 60-day calendar, simulation, admin
+- run_demo.py       Starts API on http://127.0.0.1:8000 (serves built UI from frontend/dist if present)
+
+ONE-COMMAND (after build)
+1) Install Python deps:
+   py -3.12 -m pip install -r requirements_demo.txt -q
+2) Build frontend once:
+   cd frontend
+   npm install
+   npm run build
+   cd ..
+3) Run:
+   py -3.12 run_demo.py
+4) Open browser: http://127.0.0.1:8000
+   API docs: http://127.0.0.1:8000/docs
+
+DEV (hot reload UI + API)
+Terminal A:
+   py -3.12 -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
+Terminal B:
+   cd frontend
+   npm run dev
+   Open http://127.0.0.1:5173 (Vite proxies /api to :8000)
+
+DATA REQUIREMENT
+- Airbnb_Open_Data.csv must sit in the project root (same folder as backend/ and frontend/).
