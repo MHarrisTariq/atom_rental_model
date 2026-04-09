@@ -27,10 +27,13 @@ env/
 
 # IDE / OS
 .idea/
-.vscode/
 *.swp
 .DS_Store
 Thumbs.db
 
 # Frontend build output (regenerate with: cd frontend && npm ci && npm run build)
 frontend/dist/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
